@@ -6,8 +6,13 @@ syn  on
 set  syntax =on
 filetype  indent plugin on
 
+set lines=50 columns=120
+
 " Désactiver le mode compatibilité
 set  nocp
+
+" nowrap lines
+set nowrap
 
 " Afficher les numéros de ligne
 set  nu
@@ -17,9 +22,6 @@ set  mouse =a
 
 " Afficher les parenthèses correspondantes
 set  showmatch
-
-" Modifier la police
-set  guifont =Courier\ 12
 
 " Modifier la taille des tabulations
 set  tabstop =4
@@ -36,21 +38,7 @@ set  incsearch
 set  ignorecase
 set  smartcase
 
-" Auto folding des fonctions
-function! MyFoldFunction()
-	let line = getline(v:foldstart)
-	let sub = substitute(line,'/\*\|\*/\|^\s+', '', 'g')
-	let lines = v:foldend - v:foldstart + 1
-	return v:folddashes.sub.'...'.lines.' Lines...'.getline(v:foldend)
-endfunction
-
 set  foldmethod =syntax    "Réduira automatiquement les fonctions et blocs (#region en C# par exemple)
-set  foldtext =MyFoldFunction()    "on utilise notre fonction (optionnel)
-
-" Vim correcteur orthographique
-" set  spelllang =en ",fr
-" set  spell
-" set  spellsuggest =5
 
 " Afficher la ligne contenant le curseur
 set  cursorline
