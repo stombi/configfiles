@@ -6,7 +6,20 @@ syn  on
 set  syntax =on
 filetype  indent plugin on
 
-set lines=50 columns=120
+" window geometry
+if has("gui_running")
+  " GUI is running or is about to start.
+  " Maximize gvim window.
+  set lines=999 columns=999
+else
+  " This is console Vim.
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=120
+  endif
+endif
 
 " Désactiver le mode compatibilité
 set  nocp
@@ -60,4 +73,6 @@ imap <C-X><C-X> <Esc>:q!<CR>
 colorscheme zenburn
 
 " autocmd vimenter * NERDTree
+
+" autocmd vimenter * indent_guides
 
