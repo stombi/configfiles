@@ -1,0 +1,34 @@
+presets:
+  global:
+    email:
+      from: root@localhost
+      to: root@localhost
+
+  tv:
+    series:
+      settings:
+        hdtv:
+          quality: hdtv !720p
+      720p:
+        - Series 1
+      hdtv:
+        - Series 2
+        - Series 3
+        - Series 3 (2012)
+        
+
+    set:
+      path: /media/data/Series/%(series_name)s
+
+    transmission:
+      host: localhost
+      port: 9091
+      netrc: /home/user/.flexget/tmnetrc
+      removewhendone: Yes
+      ratio: 2.0
+
+
+feeds:
+  Feed Name:
+    rss: http://domain.com/feed/
+    preset: tv
